@@ -1,0 +1,11 @@
+.result {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    color: rgba(215, 0, 0);
+}
+
+.result__fontChanger {
+    font-size: 30px;
+    color:black;
+}

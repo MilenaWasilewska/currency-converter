@@ -1,0 +1,26 @@
+.button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    font-weight: bolder;
+    color: rgba(215, 0, 0);
+    border-color:rgba(215, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(245, 235, 219, 0.096) ;
+} 
+
+.button:hover {
+    color: rgba(215, 0, 0);
+    background-color: hsl(36deg 56% 91% / 70%);
+}
+
+.button:active {
+    color: rgba(215, 0, 0);
+    background-color: hsl(36deg 56% 91%);
+    border-color: rgba(215, 0, 0);
+    border-width: 4px;
+}
