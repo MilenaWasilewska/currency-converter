@@ -1,9 +1,9 @@
 .selectionForm {
-    
     border-style: solid;
     border-width: 4px;
     border-color: rgba(215, 0, 0, 0.2);
     border-radius: 10px;
+    background-image: url("../images/background.jpg");
 }
 
 .selectionForm__legend {
