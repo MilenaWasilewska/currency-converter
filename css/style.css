@@ -14,6 +14,10 @@ html {
     line-height: 1.8;
     background-color: hsl(36deg 56% 91% / 39%);
     padding: 0 30px;
+    outline-style: solid;
+    outline-width: 4px;
+    outline-color: rgba(215, 0, 0, 0.2);
+    outline-offset: 25px;
 }
 
 .header {
