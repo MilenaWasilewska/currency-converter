@@ -57,6 +57,8 @@
             changeResultText(result, currency);
     
         });
+        
+        welcome();
     };
 
     init();
