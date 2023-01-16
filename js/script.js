@@ -1,42 +1,63 @@
-console.log("Cześć!");
+{
+    welcome = () => {
+        console.log("Cześć!");
+    };
 
-let formElement = document.querySelector(".js-form");
-let selectionFormElement = document.querySelector(".js-selectionForm");
-let eurCurrencyElement = document.querySelector(".js-eurCurrency");
-let usdCurrencyElement = document.querySelector(".js-usdCurrency");
-let chfCurrencyElement = document.querySelector(".js-chfCurrency");
-let amountElement = document.querySelector(".js-amount");
-let exchangeElement = document.querySelector(".js-exchange");
-let resultElement = document.querySelector(".js-result");
-let resultCurrencyElement = document.querySelector(".js-resultCurrency");
-let currency = "EUR";
-let exchange = 4.71;
+    const exchangeValue = (exchange) => {
+        const exchangeElement = document.querySelector(".js-exchange");
+        exchangeElement.value = exchange;
+    }
 
-selectionFormElement.addEventListener("input", () => {
-    if (eurCurrencyElement.checked == true) {
-        exchange = 4.71;
-        currency = "EUR";
+    const calculateResult = (amount, exchange) => {
+        return amount / exchange;
     }
-    else if (usdCurrencyElement.checked == true) {
-        exchange = 4.55;
-        currency = "USD";
-    } else {
-        exchange = 4.77;
-        currency = "CHF";
-    }
+
+    const changeResultText = (result, currency) => {
+
+        const resultElement = document.querySelector(".js-result");
+        const resultCurrencyElement = document.querySelector(".js-resultCurrency");
+
+        resultCurrencyElement.innerText = `Kwota ${currency}: `;
+        resultElement.innerText = `${result.toFixed(2)}`;
+    };
+
+    const init = () => {
+
+        const formElement = document.querySelector(".js-form");
+        const selectionFormElement = document.querySelector(".js-selectionForm");
+
+        selectionFormElement.addEventListener("input", () => {
+
+            const eurCurrencyElement = document.querySelector(".js-eurCurrency");
+            const usdCurrencyElement = document.querySelector(".js-usdCurrency");
+
+            if (eurCurrencyElement.checked == true) {
+                exchange = 4.71;
+                currency = "EUR";
+            }
+            else if (usdCurrencyElement.checked == true) {
+                exchange = 4.55;
+                currency = "USD";
+            } else {
+                exchange = 4.77;
+                currency = "CHF";
+            }
+
+            exchangeValue(exchange);
+        });
+
+        formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
     
-    exchangeElement.value = exchange;
-});
+            const amountElement = document.querySelector(".js-amount");
+            const amount = +amountElement.value;
+    
+            let result = calculateResult(amount, exchange);
+    
+            changeResultText(result, currency);
+    
+        });
+    };
 
-
-
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let amount = +amountElement.value;
-    let exchange =exchangeElement.value;
-    let result = amount / exchange;
-    resultCurrencyElement.innerText = `Kwota ${currency}: `;
-    resultElement.innerText = `${result.toFixed(2)}`;
-});
-
-
+    init();
+}
